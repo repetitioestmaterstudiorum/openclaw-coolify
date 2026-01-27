@@ -36,7 +36,13 @@ cat >"$CONFIG_FILE" <<EOF
   },
   "skills": {
     "install": {
-      "nodeManager": "npm"
+      "nodeManager": "npm",
+      "preferBrew": false
+    }
+  },
+  "channels": {
+    "imessage": {
+      "enabled": false
     }
   },
   "commands": {
