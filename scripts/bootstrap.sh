@@ -155,4 +155,5 @@ fi
 # ----------------------------
 # Run OpenClaw
 # ----------------------------
+ulimit -n 65535
 exec openclaw gateway run

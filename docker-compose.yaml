@@ -4,6 +4,8 @@ services:
     restart: unless-stopped
     volumes:
       - registry-data:/var/lib/registry
+    environment:
+      REGISTRY_HTTP_SECRET: ${SERVICE_BASE64_REGISTRY}
   openclaw:
     build:
       context: .
