@@ -79,9 +79,6 @@ services:
       # Optional
       OPENCLAW_BETA: ${OPENCLAW_BETA:-false}
 
-    expose:
-      - "18789"
-
     volumes:
       - openclaw-config:/root/.openclaw
       - openclaw-workspace:/root/openclaw-workspace
