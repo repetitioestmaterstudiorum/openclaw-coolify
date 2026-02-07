@@ -52,6 +52,7 @@ services:
       OPENCODE_API_KEY: ${OPENCODE_API_KEY}
       MOONSHOT_API_KEY: ${KIMI_API_KEY}
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      NOTION_TOKEN: ${NOTION_TOKEN}
       SANDBOX_CONTAINER: ${SANDBOX_CONTAINER:-false}
       
       # Optional integrations
