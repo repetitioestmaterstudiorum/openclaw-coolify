@@ -175,6 +175,18 @@ if [ -f scripts/recover_sandbox.sh ]; then
 fi
 
 # ----------------------------
+# Ensure Fallback Network Link (Ollama)
+# ----------------------------
+echo "🔗 Checking network link to local LLM..."
+MY_NET_ID=$(docker inspect "$HOSTNAME" --format '{{range .NetworkSettings.Networks}}{{.NetworkID}}{{end}}' 2>/dev/null || true)
+OLLAMA_ID=$(docker inspect openclaw-ollama --format '{{.Id}}' 2>/dev/null || true)
+
+if [ -n "$MY_NET_ID" ] && [ -n "$OLLAMA_ID" ]; then
+    echo "   Attaching Ollama ($OLLAMA_ID) to network ($MY_NET_ID)..."
+    docker network connect "$MY_NET_ID" "$OLLAMA_ID" 2>/dev/null || echo "   (Already connected or failed)"
+fi
+
+# ----------------------------
 # Run OpenClaw
 # ----------------------------
 ulimit -n 65535
